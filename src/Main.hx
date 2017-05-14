@@ -12,10 +12,14 @@ class Main extends Sprite
 
 	public function new() 
 	{
+		//Simply start the game, its really that simple.
+		
 		super();
 		
-		// Assets:
-		// openfl.Assets.getBitmapData("img/assetname.jpg");
+		//SoundManager.start();
+		StageMainMenu.setup(stage);
+		StageMainMenu.start();
+
 	}
 
 }
