@@ -21,10 +21,10 @@ class SceneManager
 	
 	
 	//As you might imagine from the name, this function switches you to the Leaderboard Stage
-	public static function switchToStageLeaderboard() 
+	public static function switchToStageHOF() 
 	{
-		//StageHallOfFame.setup(myStage);
-		//StageHallOfFame.start();
+		StageHallOfFame.setup(myStage);
+		StageHallOfFame.start();
 	}
 	
 }

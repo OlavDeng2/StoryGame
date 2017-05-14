@@ -43,12 +43,44 @@ class UIButton extends Button
 	
 	public static function hofButton(myStage:Stage, xPos:Int, yPos:Int)
 	{
+		var pressableHOFButton:Button = new Button(myStage, "CreditsButton");
+		//set position
+		pressableHOFButton.y = yPos;
+		pressableHOFButton.x = xPos;
 		
+		//add button to sprite
+		myStage.addChild(pressableHOFButton);
+		
+		//add event listener
+		pressableHOFButton.addEventListener(MouseEvent.CLICK, hofButtonPress);
 	}
 	
-	public static function startButton(myStage:Stage, xPos:Int, yPos:Int)
+	private static function hofButtonPress(event : MouseEvent)
 	{
-		
+		var pressableHOFButton:Button = cast (event.target);
+		SceneManager.switchToStageHOF();
 	}
 	
+	
+	
+	//The button for starting the game
+	public static function startButton(myStage:Stage, xPos:Int, yPos:Int)
+	{	
+		var pressableStartButton:Button = new Button(myStage, "StartButton");
+		//set position
+		pressableStartButton.y = yPos;
+		pressableStartButton.x = xPos;
+		
+		//add button to sprite
+		myStage.addChild(pressableStartButton);
+		
+		//add event listener
+		pressableStartButton.addEventListener(MouseEvent.CLICK, startButtonPress);
+	}
+	
+	private static function startButtonPress(event : MouseEvent)
+	{
+		var pressableStartButton:Button = cast (event.target);
+		Sys.println("start Game");
+	}
 }
