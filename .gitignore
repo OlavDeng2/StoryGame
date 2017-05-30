@@ -19,6 +19,8 @@ $RECYCLE.BIN/
 
 #Bin Folder
 bin/*
+bin/
+bin\
 
 # =========================
 # Operating System Files
