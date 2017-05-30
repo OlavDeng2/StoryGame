@@ -24,11 +24,11 @@ import haxe.macro.Expr;
 		
 		var config = {
 			
-			build: "65",
+			build: "69",
 			company: "Olav",
 			file: "StoryGame",
 			fps: 60,
-			name: "StoryGame",
+			name: "Naval Encounters: A Foggy Day",
 			orientation: "",
 			packageName: "StoryGame",
 			version: "1.0.0",
@@ -50,7 +50,7 @@ import haxe.macro.Expr;
 					parameters: {},
 					resizable: true,
 					stencilBuffer: true,
-					title: "StoryGame",
+					title: "Naval Encounters: A Foggy Day",
 					vsync: false,
 					width: 1280,
 					x: null,
