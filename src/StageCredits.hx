@@ -27,6 +27,7 @@ class StageCredits
 		//This function is used to make sure that the SceneManager has the correct stage to work off of when switching between different stages
 		SceneManager.setMyStage(myStage);
 		
+		GameManager.getCredits();
 		//Really self explanatory, if not see the UIButton class
 		UIButton.exitButton(50, 500);
 	}

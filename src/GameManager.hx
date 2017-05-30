@@ -68,6 +68,8 @@ class GameManager
 		cnx.close();
 	}
 	
+	
+	//get and display the leaderboard
 	public static function getLeaderboard()
 	{
 		setMyStage();
@@ -119,11 +121,61 @@ class GameManager
 		// close the database
 		cnx.close();
 		
-		
-
-		
-		
 
 	}
 	
+	
+	//Get and display the credits
+	public static function getCredits()
+	{
+		setMyStage();
+		var place:Int = 1;
+
+		
+		
+		//Open the database*/
+		var cnx = Sqlite.open("DB/Data.db");
+		
+		//get the story from the database at collom story from table story
+		var creditSet = cnx.request("SELECT * FROM Credits");
+		
+		
+		//Go through the rows in story and get the story
+		for (row in creditSet)
+		{
+			var name:String = row.Name;
+			var role:String = row.Role;
+			var creditYStartPos:Int = 0;
+			var creditXPos:Int = 75;
+
+			//add the names to the screen
+			var nameTextFieldText:String = '$name ';
+			var nameTextField:TextField = new TextField();
+			nameTextField.text = nameTextFieldText;
+			var fontSize = 40;
+			nameTextField.defaultTextFormat = new TextFormat(Assets.getFont("Fonts/TIMES.TTF").fontName, fontSize);
+			nameTextField.autoSize = TextFieldAutoSize.LEFT;
+			nameTextField.x = creditXPos;
+			nameTextField.y = place * 50+ creditYStartPos;
+			myStage.addChild(nameTextField);
+			
+			//add the score to the screen
+			var roleTextFieldText:String = '$role ';
+			var roleTextField:TextField = new TextField();
+			roleTextField.text = roleTextFieldText;
+			var fontSize = 40;
+			roleTextField.defaultTextFormat = new TextFormat(Assets.getFont("Fonts/TIMES.TTF").fontName, fontSize);
+			roleTextField.autoSize = TextFieldAutoSize.LEFT;
+			roleTextField.x = creditXPos + 415;
+			roleTextField.y = place * 50 + creditYStartPos;
+			myStage.addChild(roleTextField);
+			
+			place += 1;
+			
+		}
+		
+		// close the database
+		cnx.close();
+	}
+
 }
