@@ -41,4 +41,10 @@ class SceneManager
 		StageCredits.start();
 	}
 	
+	public static function switchToStageCharacterCreation()
+	{
+		myStage.removeChildren();
+		StageCharacterCreation.setup(myStage);
+		StageCharacterCreation.start();
+	}
 }

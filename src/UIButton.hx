@@ -94,6 +94,7 @@ class UIButton extends Button
 	{
 		var pressableStartButton:Button = cast (event.target);
 		Sys.println("start Game");
+		SceneManager.switchToStageCharacterCreation();
 	}
 	
 	
