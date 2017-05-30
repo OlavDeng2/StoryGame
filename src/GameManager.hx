@@ -77,7 +77,7 @@ class GameManager
 
 		
 		
-		//Open the database*/
+		//Open the database
 		var cnx = Sqlite.open("DB/Data.db");
 		
 		//get the story from the database at collom story from table story
@@ -128,19 +128,19 @@ class GameManager
 	//Get and display the credits
 	public static function getCredits()
 	{
+		Sys.println("its happening?");
 		setMyStage();
 		var place:Int = 1;
 
-		
-		
-		//Open the database*/
+
+		//Open the database
 		var cnx = Sqlite.open("DB/Data.db");
 		
 		//get the story from the database at collom story from table story
 		var creditSet = cnx.request("SELECT * FROM Credits");
 		
 		
-		//Go through the rows in story and get the story
+		//Go through the rows and get the credits
 		for (row in creditSet)
 		{
 			var name:String = row.Name;
@@ -156,7 +156,7 @@ class GameManager
 			nameTextField.defaultTextFormat = new TextFormat(Assets.getFont("Fonts/TIMES.TTF").fontName, fontSize);
 			nameTextField.autoSize = TextFieldAutoSize.LEFT;
 			nameTextField.x = creditXPos;
-			nameTextField.y = place * 50+ creditYStartPos;
+			nameTextField.y = place * 50 + creditYStartPos;
 			myStage.addChild(nameTextField);
 			
 			//add the score to the screen
@@ -172,10 +172,19 @@ class GameManager
 			
 			place += 1;
 			
+			Sys.println("its happening!");
 		}
 		
 		// close the database
 		cnx.close();
+		
+		/*
+
+		
+		
+
+
+		*/
 	}
 
 }
