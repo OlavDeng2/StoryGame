@@ -19,12 +19,26 @@ class SceneManager
 
 	}
 	
+	public static function getMyStage()
+	{
+		return(myStage);
+	}
+	
 	
 	//As you might imagine from the name, this function switches you to the Leaderboard Stage
 	public static function switchToStageHOF() 
 	{
+		myStage.removeChildren();
+
 		StageHallOfFame.setup(myStage);
 		StageHallOfFame.start();
+	}
+	
+	public static function switchToStageCredits()
+	{
+		myStage.removeChildren();
+		StageCredits.setup(myStage);
+		StageCredits.start();
 	}
 	
 }

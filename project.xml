@@ -8,8 +8,8 @@
 	<!-- output -->
 	<app main="Main" file="StoryGame" path="bin" />
 	
-	<window background="#000000" fps="60" />
-	<window width="800" height="480" unless="mobile" />
+	<window background="#FFFFFF" fps="60" />
+	<window width="1280" height="720" unless="mobile" />
 	<window orientation="landscape" vsync="false" antialiasing="0" if="cpp" />
 	
 	<!-- classpath, haxe libs -->
@@ -20,6 +20,10 @@
 	<!-- assets -->
 	<icon path="assets/openfl.svg" />
 	<assets path="assets/img" rename="img" />
+	<assets path="assets/Databases" rename="DB" />
+	<assets path="assets/Fonts" rename="Fonts" />
+	<assets path="assets/music" rename="music" />
+	<assets path="assets/sfx" rename="sfx" />
 	
 	<!-- optimize output
 	<haxeflag name="-dce full" /> -->

@@ -28,9 +28,10 @@ class StageHallOfFame
 	{
 		//This function is used to make sure that the SceneManager has the correct stage to work off of when switching between different stages
 		SceneManager.setMyStage(myStage);
+		GameManager.getLeaderboard();
 		
 		//Really self explanatory, if not see the UIButton class
-		UIButton.exitButton(myStage, 50, 500);
+		UIButton.exitButton(50, 500);
 	}
 	
 	

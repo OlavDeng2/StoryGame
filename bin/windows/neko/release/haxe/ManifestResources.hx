@@ -47,6 +47,10 @@ import sys.FileSystem;
 		Assets.defaultRootPath = rootPath;
 		
 		#if (openfl && !flash)
+		openfl.text.Font.registerFont (__ASSET__OPENFL__fonts_times_ttf);
+		openfl.text.Font.registerFont (__ASSET__OPENFL__fonts_timesbd_ttf);
+		openfl.text.Font.registerFont (__ASSET__OPENFL__fonts_timesbi_ttf);
+		openfl.text.Font.registerFont (__ASSET__OPENFL__fonts_timesi_ttf);
 		
 		#end
 		
@@ -74,16 +78,28 @@ import sys.FileSystem;
 #elseif (desktop || cpp)
 
 
+@:keep #if display private #end class __ASSET__fonts_times_ttf extends lime.text.Font { public function new () { __fontPath = #if (ios || tvos) "assets/" + #end "Fonts/TIMES.TTF"; name = "Times New Roman"; super (); }}
+@:keep #if display private #end class __ASSET__fonts_timesbd_ttf extends lime.text.Font { public function new () { __fontPath = #if (ios || tvos) "assets/" + #end "Fonts/TIMESBD.TTF"; name = "Times New Roman Bold"; super (); }}
+@:keep #if display private #end class __ASSET__fonts_timesbi_ttf extends lime.text.Font { public function new () { __fontPath = #if (ios || tvos) "assets/" + #end "Fonts/TIMESBI.TTF"; name = "Times New Roman Bold Italic"; super (); }}
+@:keep #if display private #end class __ASSET__fonts_timesi_ttf extends lime.text.Font { public function new () { __fontPath = #if (ios || tvos) "assets/" + #end "Fonts/TIMESI.TTF"; name = "Times New Roman Italic"; super (); }}
 
 
 #else
 
+@:keep #if display private #end class __ASSET__fonts_times_ttf extends lime.text.Font { public function new () { #if !html5 __fontPath = "Fonts/TIMES.TTF"; #end name = "Times New Roman"; super (); }}
+@:keep #if display private #end class __ASSET__fonts_timesbd_ttf extends lime.text.Font { public function new () { #if !html5 __fontPath = "Fonts/TIMESBD.TTF"; #end name = "Times New Roman Bold"; super (); }}
+@:keep #if display private #end class __ASSET__fonts_timesbi_ttf extends lime.text.Font { public function new () { #if !html5 __fontPath = "Fonts/TIMESBI.TTF"; #end name = "Times New Roman Bold Italic"; super (); }}
+@:keep #if display private #end class __ASSET__fonts_timesi_ttf extends lime.text.Font { public function new () { #if !html5 __fontPath = "Fonts/TIMESI.TTF"; #end name = "Times New Roman Italic"; super (); }}
 
 
 #end
 
 #if (openfl && !flash)
 
+@:keep #if display private #end class __ASSET__OPENFL__fonts_times_ttf extends openfl.text.Font { public function new () { #if !html5 __fontPath = #if (ios || tvos) "assets/" + #end "Fonts/TIMES.TTF"; #end name = "Times New Roman"; super (); }}
+@:keep #if display private #end class __ASSET__OPENFL__fonts_timesbd_ttf extends openfl.text.Font { public function new () { #if !html5 __fontPath = #if (ios || tvos) "assets/" + #end "Fonts/TIMESBD.TTF"; #end name = "Times New Roman Bold"; super (); }}
+@:keep #if display private #end class __ASSET__OPENFL__fonts_timesbi_ttf extends openfl.text.Font { public function new () { #if !html5 __fontPath = #if (ios || tvos) "assets/" + #end "Fonts/TIMESBI.TTF"; #end name = "Times New Roman Bold Italic"; super (); }}
+@:keep #if display private #end class __ASSET__OPENFL__fonts_timesi_ttf extends openfl.text.Font { public function new () { #if !html5 __fontPath = #if (ios || tvos) "assets/" + #end "Fonts/TIMESI.TTF"; #end name = "Times New Roman Italic"; super (); }}
 
 
 #end

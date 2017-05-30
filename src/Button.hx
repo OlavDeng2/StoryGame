@@ -18,7 +18,7 @@ import openfl.system.System;
  //The button class is tasked with the rendering of the button as well as making sure an event listener is available, this is the parent class of UIButton.
 class Button extends Sprite
 {
-	public function new(myStage:Stage, buttonName:String)
+	public function new(buttonName:String)
 	{
 		super(); 
 		//Get the data for the image to render

@@ -18,11 +18,21 @@ import openfl.system.System;
 class UIButton extends Button
 {
 
+	//variable to store the current stage that is being worked with
+	private static var myStage:Stage;
+	
+	//This function gets the current stage from the scene manager and sets it in this class so that all the buttons have the correct stage they are working with
+	private static function setMyStage()
+	{
+		myStage = SceneManager.getMyStage();
+
+	}
 
 	//Exit Button Function
-	public static function exitButton(myStage:Stage, xPos:Int, yPos:Int)
+	public static function exitButton(xPos:Int, yPos:Int)
 	{
-		var pressableExitButton:Button = new Button(myStage, "ExitButton");
+		setMyStage();
+		var pressableExitButton:Button = new Button("ExitButton");
 		//set position
 		pressableExitButton.y = yPos;
 		pressableExitButton.x = xPos;
@@ -41,9 +51,10 @@ class UIButton extends Button
 		System.exit(0);
 	}
 	
-	public static function hofButton(myStage:Stage, xPos:Int, yPos:Int)
+	public static function hofButton(xPos:Int, yPos:Int)
 	{
-		var pressableHOFButton:Button = new Button(myStage, "CreditsButton");
+		setMyStage();
+		var pressableHOFButton:Button = new Button("CreditsButton");
 		//set position
 		pressableHOFButton.y = yPos;
 		pressableHOFButton.x = xPos;
@@ -64,9 +75,10 @@ class UIButton extends Button
 	
 	
 	//The button for starting the game
-	public static function startButton(myStage:Stage, xPos:Int, yPos:Int)
+	public static function startButton(xPos:Int, yPos:Int)
 	{	
-		var pressableStartButton:Button = new Button(myStage, "StartButton");
+		setMyStage();
+		var pressableStartButton:Button = new Button("StartButton");
 		//set position
 		pressableStartButton.y = yPos;
 		pressableStartButton.x = xPos;
@@ -82,5 +94,28 @@ class UIButton extends Button
 	{
 		var pressableStartButton:Button = cast (event.target);
 		Sys.println("start Game");
+	}
+	
+	
+	//Credits button
+	public static function creditsButton(xPos:Int, yPos:Int)
+	{
+		setMyStage();
+		var pressableCreditsButton:Button = new Button("CreditsButton");
+		//set position
+		pressableCreditsButton.y = yPos;
+		pressableCreditsButton.x = xPos;
+		
+		//add button to sprite
+		myStage.addChild(pressableCreditsButton);
+		
+		//add event listener
+		pressableCreditsButton.addEventListener(MouseEvent.CLICK, creditsButtonPress);
+	}
+	
+	private static function creditsButtonPress(event : MouseEvent)
+	{
+		var pressableCreditsButton:Button = cast (event.target);
+		SceneManager.switchToStageCredits();
 	}
 }
