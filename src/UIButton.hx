@@ -142,4 +142,26 @@ class UIButton extends Button
 		var pressableMainMenuButton:Button = cast (event.target);
 		SceneManager.switchToStageMainMenu();
 	}
+	
+	//main menu button
+	public static function playMainGameButton(xPos:Int, yPos:Int)
+	{
+		setMyStage();
+		var pressablePlayMainGameButton:Button = new Button("ContinueButton");
+		//set position
+		pressablePlayMainGameButton.y = yPos;
+		pressablePlayMainGameButton.x = xPos;
+		
+		//add button to sprite
+		myStage.addChild(pressablePlayMainGameButton);
+		
+		//add event listener
+		pressablePlayMainGameButton.addEventListener(MouseEvent.CLICK, playMainGameButtonPress);
+	}
+	
+	private static function playMainGameButtonPress(event : MouseEvent)
+	{
+		var pressablePlayMainGameButton:Button = cast (event.target);
+		SceneManager.switchToStageMainGame();
+	}
 }

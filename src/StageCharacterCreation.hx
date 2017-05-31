@@ -6,6 +6,8 @@ import openfl.display.BitmapData;
 import openfl.display.Sprite;
 import openfl.display.Stage;
 
+import openfl.events.MouseEvent;
+
 import openfl.text.TextField;
 import openfl.text.TextFieldType;
 import openfl.text.TextFieldAutoSize;
@@ -18,15 +20,18 @@ import openfl.text.TextFormatAlign;
  */
 class StageCharacterCreation 
 {
-
-	public static var characterNameField:TextField = new TextField();
-	public static var pleaseEnterCharacterNameTextField:TextField = new TextField();
-	public static var characterName:String = "";
-
-	
-	
 	//Declare some necesarry variables
 	private static var myStage:Stage;
+	
+	//create text fields
+	public static var characterNameField:TextField = new TextField();
+	public static var pleaseEnterCharacterNameTextField:TextField = new TextField();
+	public static var storyTextField:TextField = new TextField();
+
+	//create some other variables that are needed
+	public static var storyLocation:Int;
+	public static var storyLength: Int = 3;
+	public static var characterName:String = "";
 	
 	//do the necesarry setups
 	public static function setup(stageref:Stage)
@@ -50,6 +55,7 @@ class StageCharacterCreation
 		myStage.addChild(backgroundImage);
 		
 		inputCharacterName();
+		acceptCharacterName(500, 600);
 
 	}
 	
@@ -86,5 +92,76 @@ class StageCharacterCreation
 		myStage.addChild(pleaseEnterCharacterNameTextField);
 		myStage.addChild( characterNameField );
 		
+	}
+	
+	
+	//store char name and start displaying story
+	static function acceptCharacterName(xPos:Int, yPos:Int)
+	{
+
+		var acceptCharacterNameButton:Button = new Button("ContinueButton");
+		
+		acceptCharacterNameButton.y = yPos;
+		acceptCharacterNameButton.x = xPos;
+		
+		myStage.addChild(acceptCharacterNameButton);
+		
+		acceptCharacterNameButton.addEventListener(MouseEvent.CLICK, acceptCharacterNameButtonPress);
+	}
+	
+	//actual functionality of when the acceptCharacterName button is pressed
+	static function acceptCharacterNameButtonPress(event:MouseEvent)
+	{
+		var acceptCharacterNameButton:Button = cast(event.target);
+		Sys.println("Char name is now saved");
+		GameManager.setCurrentName(characterNameField.text);
+		
+		//This is the numbering of the story in the database, 1 being the 1st row, 2 being 2nd etc. Always begins at row 1 for obvious reasons
+		storyLocation = 1;
+		
+		//displayStory(storyLocation);
+		nextStory(500, 600);
+		
+		//remove things which are now unecesarry
+		myStage.removeChild(acceptCharacterNameButton);
+		myStage.removeChild(characterNameField);
+		myStage.removeChild(pleaseEnterCharacterNameTextField);
+	}
+	
+	
+	//next story button
+	static function nextStory(xPos:Int, yPos:Int)
+	{
+		var nextStoryButton:Button = new Button("ContinueButton");
+		
+		nextStoryButton.y = yPos;
+		nextStoryButton.x = xPos;
+		
+		myStage.addChild(nextStoryButton);
+		
+		nextStoryButton.addEventListener(MouseEvent.CLICK, nextStoryPress);
+	}
+	
+	//functionality of the above button	
+	static function nextStoryPress(event:MouseEvent)
+	{
+		myStage.removeChild(storyTextField);
+
+		var nextStoryButton:Button = cast(event.target);
+		Sys.println("story next");
+		
+		storyLocation += 1;
+		
+		//displayStory(storyLocation);
+		if (storyLocation == storyLength)
+		{
+			UIButton.playMainGameButton(500, 600);
+		}
+		
+		else
+		{
+			nextStory(500, 600);
+
+		}
 	}
 }

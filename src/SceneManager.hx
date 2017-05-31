@@ -55,4 +55,11 @@ class SceneManager
 		StageMainMenu.start();
 	}
 	
+	public static function switchToStageMainGame()
+	{
+		myStage.removeChildren();
+		StageMainGame.setup(myStage);
+		StageMainGame.start();
+	}
+	
 }

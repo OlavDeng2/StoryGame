@@ -100,7 +100,9 @@ class GameManager
 			scoreNameTextField.defaultTextFormat = new TextFormat(Assets.getFont("Fonts/TIMES.TTF").fontName, fontSize);
 			scoreNameTextField.autoSize = TextFieldAutoSize.LEFT;
 			scoreNameTextField.x = scoreXPos;
-			scoreNameTextField.y = place * 50+ scoreYStartPos;
+			scoreNameTextField.y = place * 50 + scoreYStartPos;
+			scoreNameTextField.selectable = false;
+
 			myStage.addChild(scoreNameTextField);
 			
 			//add the score to the screen
@@ -112,6 +114,8 @@ class GameManager
 			scoreTextField.autoSize = TextFieldAutoSize.LEFT;
 			scoreTextField.x = scoreXPos + 415;
 			scoreTextField.y = place * 50 + scoreYStartPos;
+			scoreTextField.selectable = false;
+
 			myStage.addChild(scoreTextField);
 			
 			place += 1;
@@ -157,6 +161,8 @@ class GameManager
 			nameTextField.autoSize = TextFieldAutoSize.LEFT;
 			nameTextField.x = creditXPos;
 			nameTextField.y = place * 50 + creditYStartPos;
+			nameTextField.selectable = false;
+
 			myStage.addChild(nameTextField);
 			
 			//add the score to the screen
@@ -167,6 +173,7 @@ class GameManager
 			roleTextField.defaultTextFormat = new TextFormat(Assets.getFont("Fonts/TIMES.TTF").fontName, fontSize);
 			roleTextField.autoSize = TextFieldAutoSize.LEFT;
 			roleTextField.x = creditXPos + 415;
+			roleTextField.selectable = false;
 			roleTextField.y = place * 50 + creditYStartPos;
 			myStage.addChild(roleTextField);
 			
