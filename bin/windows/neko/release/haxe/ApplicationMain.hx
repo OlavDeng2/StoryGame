@@ -24,13 +24,13 @@ import haxe.macro.Expr;
 		
 		var config = {
 			
-			build: "69",
+			build: "71",
 			company: "Olav",
 			file: "StoryGame",
 			fps: 60,
 			name: "Naval Encounters: A Foggy Day",
 			orientation: "",
-			packageName: "StoryGame",
+			packageName: "com.olavkruithof.NavalEncountersF",
 			version: "1.0.0",
 			windows: [
 				
