@@ -26,8 +26,12 @@ class Button extends Sprite
 		var buttonImage = new Bitmap(buttonImageData);
 		
 		//set the transformation point of the image at its center
+		buttonImage.scaleX = 0.20;
+		buttonImage.scaleY = 0.20;
+		
 		buttonImage.x = -buttonImage.width / 2;
 		buttonImage.y = -buttonImage.height / 2;
+
 		
 		//add the image
 		addChild(buttonImage);

@@ -47,4 +47,12 @@ class SceneManager
 		StageCharacterCreation.setup(myStage);
 		StageCharacterCreation.start();
 	}
+	
+	public static function switchToStageMainMenu()
+	{
+		myStage.removeChildren();
+		StageMainMenu.setup(myStage);
+		StageMainMenu.start();
+	}
+	
 }

@@ -36,15 +36,18 @@ class StageMainMenu extends Sprite
 		SceneManager.setMyStage(myStage);
 		
 		//Really self explanatory, if not see the UIButton class
-		UIButton.startButton(360, 100);
-		UIButton.hofButton(360, 300);
-		UIButton.creditsButton(360, 400);
-		UIButton.exitButton(360, 500);
+		UIButton.playButton(426, 300);
+		UIButton.hofButton(426, 500);
+		UIButton.creditsButton(853, 300);
+		UIButton.exitButton(853, 500);
 	}
 	
 	static function addBackground()
 	{
+		var backgroundImageData = Assets.getBitmapData('img/Backgrounds/MainMenuBackground.jpg');
+		var backgroundImage = new Bitmap(backgroundImageData);
 		
+		myStage.addChild(backgroundImage);
 	}
 	static function showTitle()
 	{

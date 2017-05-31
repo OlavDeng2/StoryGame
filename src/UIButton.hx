@@ -54,7 +54,7 @@ class UIButton extends Button
 	public static function hofButton(xPos:Int, yPos:Int)
 	{
 		setMyStage();
-		var pressableHOFButton:Button = new Button("CreditsButton");
+		var pressableHOFButton:Button = new Button("HoFButton");
 		//set position
 		pressableHOFButton.y = yPos;
 		pressableHOFButton.x = xPos;
@@ -75,24 +75,24 @@ class UIButton extends Button
 	
 	
 	//The button for starting the game
-	public static function startButton(xPos:Int, yPos:Int)
+	public static function playButton(xPos:Int, yPos:Int)
 	{	
 		setMyStage();
-		var pressableStartButton:Button = new Button("StartButton");
+		var pressablePlayButton:Button = new Button("PlayButton");
 		//set position
-		pressableStartButton.y = yPos;
-		pressableStartButton.x = xPos;
+		pressablePlayButton.y = yPos;
+		pressablePlayButton.x = xPos;
 		
 		//add button to sprite
-		myStage.addChild(pressableStartButton);
+		myStage.addChild(pressablePlayButton);
 		
 		//add event listener
-		pressableStartButton.addEventListener(MouseEvent.CLICK, startButtonPress);
+		pressablePlayButton.addEventListener(MouseEvent.CLICK, playButtonPress);
 	}
 	
-	private static function startButtonPress(event : MouseEvent)
+	private static function playButtonPress(event : MouseEvent)
 	{
-		var pressableStartButton:Button = cast (event.target);
+		var pressablePlayButton:Button = cast (event.target);
 		Sys.println("start Game");
 		SceneManager.switchToStageCharacterCreation();
 	}
@@ -118,5 +118,28 @@ class UIButton extends Button
 	{
 		var pressableCreditsButton:Button = cast (event.target);
 		SceneManager.switchToStageCredits();
+	}
+	
+	
+	//main menu button
+	public static function mainMenuButton(xPos:Int, yPos:Int)
+	{
+		setMyStage();
+		var pressableMainMenuButton:Button = new Button("MainMenuButton");
+		//set position
+		pressableMainMenuButton.y = yPos;
+		pressableMainMenuButton.x = xPos;
+		
+		//add button to sprite
+		myStage.addChild(pressableMainMenuButton);
+		
+		//add event listener
+		pressableMainMenuButton.addEventListener(MouseEvent.CLICK, mainMenuButtonPress);
+	}
+	
+	private static function mainMenuButtonPress(event : MouseEvent)
+	{
+		var pressableMainMenuButton:Button = cast (event.target);
+		SceneManager.switchToStageMainMenu();
 	}
 }

@@ -26,13 +26,20 @@ class StageHallOfFame
 	//Create and draw the main menu
 	public static function start() 
 	{
+		addBackground();
 		//This function is used to make sure that the SceneManager has the correct stage to work off of when switching between different stages
 		SceneManager.setMyStage(myStage);
 		GameManager.getLeaderboard();
 		
 		//Really self explanatory, if not see the UIButton class
-		UIButton.exitButton(50, 500);
+		UIButton.mainMenuButton(200, 500);
 	}
 	
-	
+	static function addBackground()
+	{
+		var backgroundImageData = Assets.getBitmapData('img/Backgrounds/MainMenuBackground.jpg');
+		var backgroundImage = new Bitmap(backgroundImageData);
+		
+		myStage.addChild(backgroundImage);
+	}
 }
