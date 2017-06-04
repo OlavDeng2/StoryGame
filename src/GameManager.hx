@@ -184,14 +184,19 @@ class GameManager
 		
 		// close the database
 		cnx.close();
+	}
+	
+	public static function displayStory(storyLocation:Int)
+	{
+		setMyStage();
 		
-		/*
-
+				
+		//Open the database
+		var cnx = Sqlite.open("DB/Data.db");
 		
+		//Insert code here
 		
-
-
-		*/
+		cnx.close();
 	}
 
 }

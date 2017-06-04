@@ -99,7 +99,7 @@ class StageCharacterCreation
 	static function acceptCharacterName(xPos:Int, yPos:Int)
 	{
 
-		var acceptCharacterNameButton:Button = new Button("ContinueButton", "");
+		var acceptCharacterNameButton:Button = new Button("MenuButton", "Continue");
 		
 		acceptCharacterNameButton.y = yPos;
 		acceptCharacterNameButton.x = xPos;
@@ -119,7 +119,7 @@ class StageCharacterCreation
 		//This is the numbering of the story in the database, 1 being the 1st row, 2 being 2nd etc. Always begins at row 1 for obvious reasons
 		storyLocation = 1;
 		
-		//displayStory(storyLocation);
+		GameManager.displayStory(storyLocation);
 		nextStory(500, 600);
 		
 		//remove things which are now unecesarry
@@ -132,7 +132,7 @@ class StageCharacterCreation
 	//next story button
 	static function nextStory(xPos:Int, yPos:Int)
 	{
-		var nextStoryButton:Button = new Button("ContinueButton", "");
+		var nextStoryButton:Button = new Button("MenuButton", "Continue");
 		
 		nextStoryButton.y = yPos;
 		nextStoryButton.x = xPos;

@@ -32,7 +32,7 @@ class UIButton extends Button
 	public static function exitButton(xPos:Int, yPos:Int)
 	{
 		setMyStage();
-		var pressableExitButton:Button = new Button("ExitButton", "");
+		var pressableExitButton:Button = new Button("MenuButton", "Quit");
 		//set position
 		pressableExitButton.y = yPos;
 		pressableExitButton.x = xPos;
@@ -54,7 +54,7 @@ class UIButton extends Button
 	public static function hofButton(xPos:Int, yPos:Int)
 	{
 		setMyStage();
-		var pressableHOFButton:Button = new Button("HoFButton", "");
+		var pressableHOFButton:Button = new Button("MenuButton", "HoF");
 		//set position
 		pressableHOFButton.y = yPos;
 		pressableHOFButton.x = xPos;
@@ -78,7 +78,7 @@ class UIButton extends Button
 	public static function playButton(xPos:Int, yPos:Int)
 	{	
 		setMyStage();
-		var pressablePlayButton:Button = new Button("PlayButton", "");
+		var pressablePlayButton:Button = new Button("MenuButton", "Play");
 		//set position
 		pressablePlayButton.y = yPos;
 		pressablePlayButton.x = xPos;
@@ -102,7 +102,7 @@ class UIButton extends Button
 	public static function creditsButton(xPos:Int, yPos:Int)
 	{
 		setMyStage();
-		var pressableCreditsButton:Button = new Button("CreditsButton", "");
+		var pressableCreditsButton:Button = new Button("MenuButton", "Credits");
 		//set position
 		pressableCreditsButton.y = yPos;
 		pressableCreditsButton.x = xPos;
@@ -125,7 +125,7 @@ class UIButton extends Button
 	public static function mainMenuButton(xPos:Int, yPos:Int)
 	{
 		setMyStage();
-		var pressableMainMenuButton:Button = new Button("MainMenuButton", "");
+		var pressableMainMenuButton:Button = new Button("MenuButton", "Main\nMenu");
 		//set position
 		pressableMainMenuButton.y = yPos;
 		pressableMainMenuButton.x = xPos;
@@ -147,7 +147,7 @@ class UIButton extends Button
 	public static function playMainGameButton(xPos:Int, yPos:Int)
 	{
 		setMyStage();
-		var pressablePlayMainGameButton:Button = new Button("ContinueButton", "");
+		var pressablePlayMainGameButton:Button = new Button("MenuButton", "Continue");
 		//set position
 		pressablePlayMainGameButton.y = yPos;
 		pressablePlayMainGameButton.x = xPos;
