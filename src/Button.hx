@@ -56,12 +56,13 @@ class Button extends Sprite
 		//	text stuff
 		var buttonTextField:TextField = new TextField();
 		buttonTextField.text = buttonText;
-		var fontSize = 40;
+		var fontSize = 30;
 		buttonTextField.defaultTextFormat = new TextFormat(Assets.getFont("Fonts/TIMES.TTF").fontName, fontSize);
 		buttonTextField.autoSize = TextFieldAutoSize.CENTER;
-		
 		buttonTextField.x = -buttonTextField.width / 2;
 		buttonTextField.y = -buttonTextField.height / 2;
+		buttonTextField.width = buttonImage.width;
+		buttonTextField.height = buttonImage.height;
 		buttonTextField.selectable = false;
 		buttonTextField.mouseEnabled = false;
 		buttonSprite.addChild(buttonTextField);

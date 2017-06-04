@@ -125,7 +125,7 @@ class UIButton extends Button
 	public static function mainMenuButton(xPos:Int, yPos:Int)
 	{
 		setMyStage();
-		var pressableMainMenuButton:Button = new Button("MenuButton", "Main\nMenu");
+		var pressableMainMenuButton:Button = new Button("MenuButton", "Main Menu");
 		//set position
 		pressableMainMenuButton.y = yPos;
 		pressableMainMenuButton.x = xPos;
@@ -172,10 +172,10 @@ class UIButton extends Button
 	public static function answer1Button(storyText:String)
 	{
 		setMyStage();
-		var pressableAnswer1Button:Button = new Button("MenuButton", storyText);
+		var pressableAnswer1Button:Button = new Button("QuestionButton", storyText);
 		//set position
-		pressableAnswer1Button.y = 500;
-		pressableAnswer1Button.x = 200;
+		pressableAnswer1Button.y = 534;
+		pressableAnswer1Button.x = 320;
 		
 		//add button to sprite
 		myStage.addChild(pressableAnswer1Button);
@@ -188,7 +188,10 @@ class UIButton extends Button
 	{
 		var pressableAnswer1Button:Button = cast (event.target);
 		Sys.println("1");
-		return(1);
+		GameManager.setStoryAnswer(1);
+		
+		var answer: Int = GameManager.getStoryAnswer();
+		StageMainGame.nextStory(answer);
 	}
 	
 	
@@ -196,10 +199,10 @@ class UIButton extends Button
 	public static function answer2Button(storyText:String)
 	{
 		setMyStage();
-		var pressableAnswer2Button:Button = new Button("MenuButton", storyText);
+		var pressableAnswer2Button:Button = new Button("QuestionButton", storyText);
 		//set position
-		pressableAnswer2Button.y = 500;
-		pressableAnswer2Button.x = 1000;
+		pressableAnswer2Button.y = 534;
+		pressableAnswer2Button.x = 960;
 		
 		//add button to sprite
 		myStage.addChild(pressableAnswer2Button);
@@ -212,17 +215,20 @@ class UIButton extends Button
 	{
 		var pressableAnswer2Button:Button = cast (event.target);
 		Sys.println("2");
-		return(2);
+		GameManager.setStoryAnswer(2);
+		
+		var answer: Int = GameManager.getStoryAnswer();
+		StageMainGame.nextStory(answer);
 	}
 	
 	//Answer 3
 	public static function answer3Button(storyText:String)
 	{
 		setMyStage();
-		var pressableAnswer3Button:Button = new Button("MenuButton", storyText);
+		var pressableAnswer3Button:Button = new Button("QuestionButton", storyText);
 		//set position
-		pressableAnswer3Button.y = 650;
-		pressableAnswer3Button.x = 200;
+		pressableAnswer3Button.y = 658;
+		pressableAnswer3Button.x = 320;
 		
 		//add button to sprite
 		myStage.addChild(pressableAnswer3Button);
@@ -235,17 +241,20 @@ class UIButton extends Button
 	{
 		var pressableAnswer3Button:Button = cast (event.target);
 		Sys.println("3");
-		return(3);
+		GameManager.setStoryAnswer(3);
+		
+		var answer: Int = GameManager.getStoryAnswer();
+		StageMainGame.nextStory(answer);
 	}
 	
 	//Answer 4
 	public static function answer4Button(storyText:String)
 	{
 		setMyStage();
-		var pressableAnswer4Button:Button = new Button("MenuButton", storyText);
+		var pressableAnswer4Button:Button = new Button("QuestionButton", storyText);
 		//set position
-		pressableAnswer4Button.y = 650;
-		pressableAnswer4Button.x = 1000;
+		pressableAnswer4Button.y = 658;
+		pressableAnswer4Button.x = 960;
 		
 		//add button to sprite
 		myStage.addChild(pressableAnswer4Button);
@@ -258,6 +267,9 @@ class UIButton extends Button
 	{
 		var pressableAnswer4Button:Button = cast (event.target);
 		Sys.println("4");
-		return(4);
+		GameManager.setStoryAnswer(4);
+		
+		var answer: Int = GameManager.getStoryAnswer();
+		StageMainGame.nextStory(answer);
 	}
 }

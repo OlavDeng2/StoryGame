@@ -21,7 +21,9 @@ import openfl.events.MouseEvent;
  */
 class GameManager 
 {
-	//Gonna have to do some shit in here for the leaderboards and storing of variables, but im a lazy fuck so that will come at a later date.
+
+	//story answer
+	static var storyAnswer:Int;
 	
 	//variables which will be needed later
 	static var currentScore:Int;
@@ -35,6 +37,16 @@ class GameManager
 	{
 		myStage = SceneManager.getMyStage();
 
+	}
+	
+	public static function setStoryAnswer(answerGiven:Int )
+	{
+		storyAnswer = answerGiven;
+	}
+	
+	public static function getStoryAnswer():Int
+	{
+		return storyAnswer;
 	}
 	
 	//Function to get and set current score
@@ -186,7 +198,7 @@ class GameManager
 		cnx.close();
 	}
 	
-	public static function displayStory(storyLocation:Int)
+	public static function displayStory(storyLocation:String)
 	{
 		setMyStage();
 		
@@ -209,7 +221,7 @@ class GameManager
 		//get the story from the database at collom story from table story
 		
 		//make sure the bellow is correct as right now it probably crashes
-		var storySet = cnx.request("SELECT Story, Answer1, Answer2, Answer3, Answer4 FROM Story WHERE rowid = " + storyLocation);
+		var storySet = cnx.request("SELECT Number, Story, Answer1, Answer2, Answer3, Answer4 FROM Story WHERE Number == " + storyLocation);
 		
 		
 		//Go through the rows in story and get the story
@@ -233,7 +245,7 @@ class GameManager
 				UIButton.answer3Button(row.Answer3);
 			}
 			
-			if (row.Answer4 != "")
+			if (row.Answer4 != "" && row.Answer4 != null)
 			{
 				UIButton.answer4Button(row.Answer4);
 			}
