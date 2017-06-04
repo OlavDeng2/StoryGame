@@ -99,7 +99,7 @@ class StageCharacterCreation
 	static function acceptCharacterName(xPos:Int, yPos:Int)
 	{
 
-		var acceptCharacterNameButton:Button = new Button("ContinueButton");
+		var acceptCharacterNameButton:Button = new Button("ContinueButton", "");
 		
 		acceptCharacterNameButton.y = yPos;
 		acceptCharacterNameButton.x = xPos;
@@ -132,7 +132,7 @@ class StageCharacterCreation
 	//next story button
 	static function nextStory(xPos:Int, yPos:Int)
 	{
-		var nextStoryButton:Button = new Button("ContinueButton");
+		var nextStoryButton:Button = new Button("ContinueButton", "");
 		
 		nextStoryButton.y = yPos;
 		nextStoryButton.x = xPos;
