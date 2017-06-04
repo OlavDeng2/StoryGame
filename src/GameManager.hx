@@ -195,9 +195,12 @@ class GameManager
 		var storyTextField:TextField = new TextField();
 		storyTextField.defaultTextFormat = new TextFormat(Assets.getFont("Fonts/TIMES.TTF").fontName, fontSize);
 		storyTextField.autoSize = TextFieldAutoSize.LEFT;
+		storyTextField.wordWrap = true;
 		storyTextField.selectable = false;
-		storyTextField.x = 75;
-		storyTextField.y = 50;
+		storyTextField.x = 40;
+		storyTextField.y = 40;
+		storyTextField.width = 1200;
+		storyTextField.height = 600;
 		storyTextField.multiline = true;
 		
 		//Open the database
