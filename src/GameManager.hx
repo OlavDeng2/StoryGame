@@ -190,11 +190,31 @@ class GameManager
 	{
 		setMyStage();
 		
+		var fontSize = 40;
+		storyTextField.defaultTextFormat = new TextFormat(Assets.getFont("Fonts/TIMES.TTF").fontName, fontSize);
+		storyTextField.autoSize = TextFieldAutoSize.LEFT;
+		storyTextField.selectable = false;
+		storyTextField.x = 75;
+		storyTextField.y = 50;
+		storyTextField.multiline = true;
+		
+		
+
 				
 		//Open the database
 		var cnx = Sqlite.open("DB/Data.db");
 		
-		//Insert code here
+		//get the story from the database at collom story from table story
+		
+		//make sure the bellow is correct as right now it probably crashes
+		//var storySet = cnx.request("SELECT StoryText FROM IntroStory WHERE rowid = " + storyLocation);
+		
+		//Go through the rows in story and get the story
+		for (row in storySet)
+		{
+			storyTextField.text = row.StoryText;
+		}		
+		
 		
 		cnx.close();
 	}
