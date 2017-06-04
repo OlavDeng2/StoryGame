@@ -26,7 +26,6 @@ class StageCharacterCreation
 	//create text fields
 	public static var characterNameField:TextField = new TextField();
 	public static var pleaseEnterCharacterNameTextField:TextField = new TextField();
-	public static var storyTextField:TextField = new TextField();
 
 	//create some other variables that are needed
 	public static var storyLocation:Int;
@@ -45,6 +44,9 @@ class StageCharacterCreation
 		//This function is used to make sure that the SceneManager has the correct stage to work off of when switching between different stages
 		SceneManager.setMyStage(myStage);
 		addBackground();
+		
+		inputCharacterName();
+		acceptCharacterName(500, 600);
 	}
 	
 	static function addBackground()
@@ -54,8 +56,6 @@ class StageCharacterCreation
 		
 		myStage.addChild(backgroundImage);
 		
-		inputCharacterName();
-		acceptCharacterName(500, 600);
 
 	}
 	
@@ -145,14 +145,14 @@ class StageCharacterCreation
 	//functionality of the above button	
 	static function nextStoryPress(event:MouseEvent)
 	{
-		myStage.removeChild(storyTextField);
-
+		
 		var nextStoryButton:Button = cast(event.target);
-		Sys.println("story next");
+		myStage.removeChildren();
+		
 		
 		storyLocation += 1;
-		
-		//displayStory(storyLocation);
+		addBackground();
+		GameManager.displayStory(storyLocation);
 		if (storyLocation == storyLength)
 		{
 			UIButton.playMainGameButton(500, 600);
@@ -161,7 +161,6 @@ class StageCharacterCreation
 		else
 		{
 			nextStory(500, 600);
-
 		}
 	}
 }

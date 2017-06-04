@@ -63,6 +63,7 @@ class Button extends Sprite
 		buttonTextField.x = -buttonTextField.width / 2;
 		buttonTextField.y = -buttonTextField.height / 2;
 		buttonTextField.selectable = false;
+		buttonTextField.mouseEnabled = false;
 		buttonSprite.addChild(buttonTextField);
 		
 		addChild(buttonSprite);

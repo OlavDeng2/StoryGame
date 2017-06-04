@@ -190,7 +190,9 @@ class GameManager
 	{
 		setMyStage();
 		
+		//Create the story text
 		var fontSize = 40;
+		var storyTextField:TextField = new TextField();
 		storyTextField.defaultTextFormat = new TextFormat(Assets.getFont("Fonts/TIMES.TTF").fontName, fontSize);
 		storyTextField.autoSize = TextFieldAutoSize.LEFT;
 		storyTextField.selectable = false;
@@ -198,23 +200,44 @@ class GameManager
 		storyTextField.y = 50;
 		storyTextField.multiline = true;
 		
-		
-
-				
 		//Open the database
 		var cnx = Sqlite.open("DB/Data.db");
 		
 		//get the story from the database at collom story from table story
 		
 		//make sure the bellow is correct as right now it probably crashes
-		//var storySet = cnx.request("SELECT StoryText FROM IntroStory WHERE rowid = " + storyLocation);
+		var storySet = cnx.request("SELECT Story, Answer1, Answer2, Answer3, Answer4 FROM Story WHERE rowid = " + storyLocation);
+		
 		
 		//Go through the rows in story and get the story
 		for (row in storySet)
 		{
-			storyTextField.text = row.StoryText;
+
+			storyTextField.text = row.Story;
+			
+			if (row.Answer1 != "")
+			{
+				UIButton.answer1Button(row.Answer1);
+			}
+			
+			if (row.Answer2 != "")
+			{
+				UIButton.answer2Button(row.Answer2);
+			}
+			
+			if (row.Answer3 != "")
+			{
+				UIButton.answer3Button(row.Answer3);
+			}
+			
+			if (row.Answer4 != "")
+			{
+				UIButton.answer4Button(row.Answer4);
+			}
+			
 		}		
 		
+		myStage.addChild(storyTextField);
 		
 		cnx.close();
 	}

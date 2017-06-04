@@ -164,4 +164,100 @@ class UIButton extends Button
 		var pressablePlayMainGameButton:Button = cast (event.target);
 		SceneManager.switchToStageMainGame();
 	}
+	
+	
+	
+	//Answer buttons for the game
+	//Answer 1
+	public static function answer1Button(storyText:String)
+	{
+		setMyStage();
+		var pressableAnswer1Button:Button = new Button("MenuButton", storyText);
+		//set position
+		pressableAnswer1Button.y = 500;
+		pressableAnswer1Button.x = 200;
+		
+		//add button to sprite
+		myStage.addChild(pressableAnswer1Button);
+		
+		//add event listener
+		pressableAnswer1Button.addEventListener(MouseEvent.CLICK, answer1ButtonPress);
+	}
+	
+	private static function answer1ButtonPress(event : MouseEvent)
+	{
+		var pressableAnswer1Button:Button = cast (event.target);
+		Sys.println("1");
+		return(1);
+	}
+	
+	
+	//Answer 2
+	public static function answer2Button(storyText:String)
+	{
+		setMyStage();
+		var pressableAnswer2Button:Button = new Button("MenuButton", storyText);
+		//set position
+		pressableAnswer2Button.y = 500;
+		pressableAnswer2Button.x = 1000;
+		
+		//add button to sprite
+		myStage.addChild(pressableAnswer2Button);
+		
+		//add event listener
+		pressableAnswer2Button.addEventListener(MouseEvent.CLICK, answer2ButtonPress);
+	}
+	
+	private static function answer2ButtonPress(event : MouseEvent)
+	{
+		var pressableAnswer2Button:Button = cast (event.target);
+		Sys.println("2");
+		return(2);
+	}
+	
+	//Answer 3
+	public static function answer3Button(storyText:String)
+	{
+		setMyStage();
+		var pressableAnswer3Button:Button = new Button("MenuButton", storyText);
+		//set position
+		pressableAnswer3Button.y = 650;
+		pressableAnswer3Button.x = 200;
+		
+		//add button to sprite
+		myStage.addChild(pressableAnswer3Button);
+		
+		//add event listener
+		pressableAnswer3Button.addEventListener(MouseEvent.CLICK, answer3ButtonPress);
+	}
+	
+	private static function answer3ButtonPress(event : MouseEvent)
+	{
+		var pressableAnswer3Button:Button = cast (event.target);
+		Sys.println("3");
+		return(3);
+	}
+	
+	//Answer 4
+	public static function answer4Button(storyText:String)
+	{
+		setMyStage();
+		var pressableAnswer4Button:Button = new Button("MenuButton", storyText);
+		//set position
+		pressableAnswer4Button.y = 650;
+		pressableAnswer4Button.x = 1000;
+		
+		//add button to sprite
+		myStage.addChild(pressableAnswer4Button);
+		
+		//add event listener
+		pressableAnswer4Button.addEventListener(MouseEvent.CLICK, answer4ButtonPress);
+	}
+	
+	private static function answer4ButtonPress(event : MouseEvent)
+	{
+		var pressableAnswer4Button:Button = cast (event.target);
+		Sys.println("4");
+		return(4);
+	}
 }
