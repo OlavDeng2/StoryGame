@@ -272,4 +272,54 @@ class UIButton extends Button
 		var answer: Int = GameManager.getStoryAnswer();
 		StageMainGame.nextStory(answer);
 	}
+	
+	
+	//Victory Button
+	public static function victoryButton(xPos:Int, yPos:Int)
+	{
+		setMyStage();
+		var pressableVictoryButton:Button = new Button("MenuButton", "Victory!");
+		//set position
+		pressableVictoryButton.y = yPos;
+		pressableVictoryButton.x = xPos;
+		
+		//add button to sprite
+		myStage.addChild(pressableVictoryButton);
+		
+		//add event listener
+		pressableVictoryButton.addEventListener(MouseEvent.CLICK, victoryButtonPress);
+	}
+	
+	private static function victoryButtonPress(event : MouseEvent)
+	{
+		var pressableVictoryButton:Button = cast (event.target);
+		Sys.println("Victory");
+		SceneManager.switchToStageVictory();
+	}
+	
+	
+		
+	//Game Over Button
+	public static function gameOverButton(xPos:Int, yPos:Int)
+	{
+		setMyStage();
+		var pressableGameOverButton:Button = new Button("MenuButton", "Game Over");
+		//set position
+		pressableGameOverButton.y = yPos;
+		pressableGameOverButton.x = xPos;
+		
+		//add button to sprite
+		myStage.addChild(pressableGameOverButton);
+		
+		//add event listener
+		pressableGameOverButton.addEventListener(MouseEvent.CLICK, gameOverButtonPress);
+	}
+	
+	private static function gameOverButtonPress(event : MouseEvent)
+	{
+		var pressableGameOverButton:Button = cast (event.target);
+		Sys.println("defeat");
+		SceneManager.switchToStageGameOver();
+	}
+	
 }

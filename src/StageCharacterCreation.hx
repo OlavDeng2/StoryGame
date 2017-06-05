@@ -28,7 +28,7 @@ class StageCharacterCreation
 	public static var pleaseEnterCharacterNameTextField:TextField = new TextField();
 
 	//create some other variables that are needed
-	static var storyNumber:Int = 1;
+	static var storyNumber:Int;
 	static var storyLocation:String = "";
 	static var storyLength: String = "2";
 	static var characterName:String = "";
@@ -118,7 +118,9 @@ class StageCharacterCreation
 		GameManager.setCurrentName(characterNameField.text);
 		
 		//This is the numbering of the story in the database, 1 being the 1st row, 2 being 2nd etc. Always begins at row 1 for obvious reasons
+		storyNumber = 1;
 		storyLocation = "1";
+		Sys.println(storyNumber);
 		
 		GameManager.displayStory(storyLocation);
 		nextStory(500, 600);

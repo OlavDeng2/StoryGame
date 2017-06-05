@@ -230,7 +230,19 @@ class GameManager
 
 			storyTextField.text = row.Story;
 			
-			if (row.Answer1 != "")
+			if (row.Answer1 == "D")
+			{
+				Sys.println("Defeat :/");
+
+				UIButton.gameOverButton(100, 100);	
+			}
+			if (row.Answer1 == "V")
+			{
+				Sys.println("Victory!");
+				UIButton.victoryButton(300, 300);
+			}
+			
+			if (row.Answer1 != "" && row.Answer1 != "D" && row.Answer1 != "V")
 			{
 				UIButton.answer1Button(row.Answer1);
 			}

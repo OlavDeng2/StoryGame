@@ -34,6 +34,7 @@ class StageMainGame
 		//This function is used to make sure that the SceneManager has the correct stage to work off of when switching between different stages
 		SceneManager.setMyStage(myStage);
 		Sys.println("you now playing the game");
+		storyTree = "3";
 		addTimer();
 		GameManager.displayStory(storyTree);
 	}
@@ -64,8 +65,14 @@ class StageMainGame
 	public static function nextStory(answer:Int)
 	{
 		myStage.removeChildren();
+		addBackground();
 		storyTree += '.$answer';
 		Sys.println(storyTree);
-		GameManager.displayStory(storyTree);
+		
+		if (answer != 10 && answer != 11)
+		{
+			GameManager.displayStory(storyTree);
+		}
+		
 	}
 }
