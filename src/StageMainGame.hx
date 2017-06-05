@@ -19,6 +19,7 @@ class StageMainGame
 	private static var myStage:Stage;
 	
 	static var storyTree:String = "3";
+	static var score:Int = 0;
 
 	
 	//do the necesarry setups
@@ -35,6 +36,7 @@ class StageMainGame
 		SceneManager.setMyStage(myStage);
 		Sys.println("you now playing the game");
 		storyTree = "3";
+		score = 0;
 		addTimer();
 		GameManager.displayStory(storyTree);
 	}
@@ -64,15 +66,14 @@ class StageMainGame
 	
 	public static function nextStory(answer:Int)
 	{
+		score += 1;
+		GameManager.setCurrentScore(score);
 		myStage.removeChildren();
 		addBackground();
 		storyTree += '.$answer';
 		Sys.println(storyTree);
 		
-		if (answer != 10 && answer != 11)
-		{
-			GameManager.displayStory(storyTree);
-		}
+		GameManager.displayStory(storyTree);
 		
 	}
 }

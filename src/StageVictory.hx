@@ -32,6 +32,7 @@ class StageVictory
 		//Really self explanatory, if not see the UIButton class
 		UIButton.mainMenuButton(200, 500);
 		UIButton.hofButton(300, 600);
+		GameManager.writeScoreToDB();
 				
 	}
 	
