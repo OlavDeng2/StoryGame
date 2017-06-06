@@ -188,10 +188,8 @@ class UIButton extends Button
 	{
 		var pressableAnswer1Button:Button = cast (event.target);
 		Sys.println("1");
-		GameManager.setStoryAnswer(1);
-		
-		var answer: Int = GameManager.getStoryAnswer();
-		StageMainGame.nextStory(answer);
+
+		StageMainGame.nextStory("1");
 	}
 	
 	
@@ -215,10 +213,8 @@ class UIButton extends Button
 	{
 		var pressableAnswer2Button:Button = cast (event.target);
 		Sys.println("2");
-		GameManager.setStoryAnswer(2);
 		
-		var answer: Int = GameManager.getStoryAnswer();
-		StageMainGame.nextStory(answer);
+		StageMainGame.nextStory("2");
 	}
 	
 	//Answer 3
@@ -241,10 +237,7 @@ class UIButton extends Button
 	{
 		var pressableAnswer3Button:Button = cast (event.target);
 		Sys.println("3");
-		GameManager.setStoryAnswer(3);
-		
-		var answer: Int = GameManager.getStoryAnswer();
-		StageMainGame.nextStory(answer);
+		StageMainGame.nextStory("3");
 	}
 	
 	//Answer 4
@@ -267,10 +260,7 @@ class UIButton extends Button
 	{
 		var pressableAnswer4Button:Button = cast (event.target);
 		Sys.println("4");
-		GameManager.setStoryAnswer(4);
-		
-		var answer: Int = GameManager.getStoryAnswer();
-		StageMainGame.nextStory(answer);
+		StageMainGame.nextStory("4");
 	}
 	
 	

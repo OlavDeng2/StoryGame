@@ -21,9 +21,6 @@ import openfl.events.MouseEvent;
  */
 class GameManager 
 {
-
-	//story answer
-	static var storyAnswer:Int;
 	
 	//variables which will be needed later
 	static var currentScore:Int;
@@ -38,17 +35,7 @@ class GameManager
 		myStage = SceneManager.getMyStage();
 
 	}
-	
-	public static function setStoryAnswer(answerGiven:Int )
-	{
-		storyAnswer = answerGiven;
-	}
-	
-	public static function getStoryAnswer():Int
-	{
-		return storyAnswer;
-	}
-	
+
 	//Function to get and set current score
 	public static function getCurrentScore()
 	{
@@ -221,7 +208,7 @@ class GameManager
 		//get the story from the database at collom story from table story
 		
 		//make sure the bellow is correct as right now it probably crashes
-		var storySet = cnx.request("SELECT Number, Story, Answer1, Answer2, Answer3, Answer4 FROM Story WHERE Number == " + storyLocation);
+		var storySet = cnx.request('SELECT Number, Story, Answer1, Answer2, Answer3, Answer4 FROM Story WHERE Number == "$storyLocation"');
 		
 		
 		//Go through the rows in story and get the story
@@ -229,35 +216,35 @@ class GameManager
 		{
 
 			storyTextField.text = row.Story;
-			
+
 			if (row.Answer1 == "D")
 			{
 				Sys.println("Defeat :/");
 
-				UIButton.gameOverButton(100, 100);	
+				UIButton.gameOverButton(500, 600);	
 			}
 			if (row.Answer1 == "V")
 			{
 				Sys.println("Victory!");
-				UIButton.victoryButton(300, 300);
+				UIButton.victoryButton(500, 600);
 			}
 			
-			if (row.Answer1 != "" && row.Answer1 != "D" && row.Answer1 != "V")
+			if (row.Answer1 != "N/A" && row.Answer1 != "D" && row.Answer1 != "V")
 			{
 				UIButton.answer1Button(row.Answer1);
 			}
 			
-			if (row.Answer2 != "")
+			if (row.Answer2 != "N/A")
 			{
 				UIButton.answer2Button(row.Answer2);
 			}
 			
-			if (row.Answer3 != "")
+			if (row.Answer3 != "N/A")
 			{
 				UIButton.answer3Button(row.Answer3);
 			}
 			
-			if (row.Answer4 != "" && row.Answer4 != null)
+			if (row.Answer4 != "N/A")
 			{
 				UIButton.answer4Button(row.Answer4);
 			}

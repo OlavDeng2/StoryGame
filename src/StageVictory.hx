@@ -30,8 +30,8 @@ class StageVictory
 		SceneManager.setMyStage(myStage);
 
 		//Really self explanatory, if not see the UIButton class
-		UIButton.mainMenuButton(200, 500);
-		UIButton.hofButton(300, 600);
+		UIButton.mainMenuButton(426, 300);
+		UIButton.hofButton(426, 500);
 		GameManager.writeScoreToDB();
 				
 	}

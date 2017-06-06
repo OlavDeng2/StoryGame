@@ -30,7 +30,7 @@ class StageGameOver
 		SceneManager.setMyStage(myStage);
 
 		//Really self explanatory, if not see the UIButton class
-		UIButton.mainMenuButton(200, 500);
+		UIButton.mainMenuButton(426, 300);
 				
 	}
 	

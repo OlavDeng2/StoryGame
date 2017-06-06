@@ -19,7 +19,7 @@ class StageMainGame
 
 	
 	
-	static var storyTree:String = "3";
+	static var storyTree:String;
 	static var score:Int = 0;
 
 	
@@ -37,7 +37,7 @@ class StageMainGame
 		//This function is used to make sure that the SceneManager has the correct stage to work off of when switching between different stages
 		SceneManager.setMyStage(myStage);
 		Sys.println("you now playing the game");
-		storyTree = "3";
+		storyTree = "q1";
 		score = 0;
 		addTimer();
 
@@ -61,30 +61,26 @@ class StageMainGame
 		Sys.println("this called");
 		var time:Int = 0;
 		timer.run = function () 
+		{
+			time += 1;
+			Sys.println(time);
+			if (time >= 5)
 			{
-				time += 1;
-				Sys.println(time);
-				if (time >= 5)
-				{
-					stopTimer();
-				}
+				nextStory("5");
+				timer.stop();
 			}
+			
+		}
 	}
 
-	public static function stopTimer()
-	{
-		Sys.println("timer attempt stop");
-		timer.stop();
-	}
-	
-	public static function nextStory(answer:Int)
+	public static function nextStory(answer:String)
 	{
 		timer.stop();
 		score += 1;
 		GameManager.setCurrentScore(score);
 		myStage.removeChildren();
 		addBackground();
-		storyTree += '.$answer';
+		storyTree += "." + answer;
 		Sys.println(storyTree);
 		GameManager.displayStory(storyTree);
 		
