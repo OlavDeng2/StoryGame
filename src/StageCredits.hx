@@ -6,6 +6,8 @@ import openfl.display.Bitmap;
 import openfl.display.BitmapData;
 import openfl.display.Sprite;
 import openfl.display.Stage;
+
+
 /**
  * ...
  * @author Olav
@@ -30,8 +32,10 @@ class StageCredits
 		
 		GameManager.getCredits();
 		Sys.println("credits scene");
+		
 		//Really self explanatory, if not see the UIButton class
 		UIButton.mainMenuButton(200, 500);
+				
 	}
 	
 
@@ -43,4 +47,5 @@ class StageCredits
 		myStage.addChild(backgroundImage);
 	}
 	
+
 }

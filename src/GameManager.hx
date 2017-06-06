@@ -21,7 +21,6 @@ import openfl.events.MouseEvent;
  */
 class GameManager 
 {
-	//Gonna have to do some shit in here for the leaderboards and storing of variables, but im a lazy fuck so that will come at a later date.
 	
 	//variables which will be needed later
 	static var currentScore:Int;
@@ -36,7 +35,7 @@ class GameManager
 		myStage = SceneManager.getMyStage();
 
 	}
-	
+
 	//Function to get and set current score
 	public static function getCurrentScore()
 	{
@@ -184,14 +183,77 @@ class GameManager
 		
 		// close the database
 		cnx.close();
+	}
+	
+	public static function displayStory(storyLocation:String)
+	{
+		setMyStage();
 		
-		/*
-
+		//Create the story text
+		var fontSize = 40;
+		var storyTextField:TextField = new TextField();
+		storyTextField.defaultTextFormat = new TextFormat(Assets.getFont("Fonts/TIMES.TTF").fontName, fontSize);
+		storyTextField.autoSize = TextFieldAutoSize.LEFT;
+		storyTextField.wordWrap = true;
+		storyTextField.selectable = false;
+		storyTextField.x = 40;
+		storyTextField.y = 40;
+		storyTextField.width = 1200;
+		storyTextField.height = 600;
+		storyTextField.multiline = true;
+		
+		//Open the database
+		var cnx = Sqlite.open("DB/Data.db");
+		
+		//get the story from the database at collom story from table story
+		
+		//make sure the bellow is correct as right now it probably crashes
+		var storySet = cnx.request('SELECT Number, Story, Answer1, Answer2, Answer3, Answer4 FROM Story WHERE Number == "$storyLocation"');
 		
 		
+		//Go through the rows in story and get the story
+		for (row in storySet)
+		{
 
+			storyTextField.text = row.Story;
 
-		*/
+			if (row.Answer1 == "D")
+			{
+				Sys.println("Defeat :/");
+
+				UIButton.gameOverButton(500, 600);	
+			}
+			if (row.Answer1 == "V")
+			{
+				Sys.println("Victory!");
+				UIButton.victoryButton(500, 600);
+			}
+			
+			if (row.Answer1 != "N/A" && row.Answer1 != "D" && row.Answer1 != "V")
+			{
+				UIButton.answer1Button(row.Answer1);
+			}
+			
+			if (row.Answer2 != "N/A")
+			{
+				UIButton.answer2Button(row.Answer2);
+			}
+			
+			if (row.Answer3 != "N/A")
+			{
+				UIButton.answer3Button(row.Answer3);
+			}
+			
+			if (row.Answer4 != "N/A")
+			{
+				UIButton.answer4Button(row.Answer4);
+			}
+			
+		}		
+		
+		myStage.addChild(storyTextField);
+		
+		cnx.close();
 	}
 
 }

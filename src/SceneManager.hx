@@ -62,4 +62,18 @@ class SceneManager
 		StageMainGame.start();
 	}
 	
+		public static function switchToStageGameOver()
+	{
+		myStage.removeChildren();
+		StageGameOver.setup(myStage);
+		StageGameOver.start();
+	}
+	
+		public static function switchToStageVictory()
+	{
+		myStage.removeChildren();
+		StageVictory.setup(myStage);
+		StageVictory.start();
+	}
+	
 }

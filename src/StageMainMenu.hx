@@ -7,6 +7,11 @@ import openfl.display.BitmapData;
 import openfl.display.Sprite;
 import openfl.display.Stage;
 
+
+import openfl.display.Bitmap;
+import openfl.display.BitmapData;
+import openfl.display.Sprite;
+
 /**
  * ...
  * @author Olav
@@ -40,6 +45,7 @@ class StageMainMenu extends Sprite
 		UIButton.hofButton(426, 500);
 		UIButton.creditsButton(853, 300);
 		UIButton.exitButton(853, 500);
+		
 	}
 	
 	static function addBackground()
@@ -53,5 +59,4 @@ class StageMainMenu extends Sprite
 	{
 		
 	}
-	
 }

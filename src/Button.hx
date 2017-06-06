@@ -38,8 +38,8 @@ class Button extends Sprite
 		var buttonImage = new Bitmap(buttonImageData);
 		
 		//set the transformation point of the image at its center
-		buttonImage.scaleX = 0.20;
-		buttonImage.scaleY = 0.20;
+		buttonImage.scaleX = 1;
+		buttonImage.scaleY = 1;
 		
 		buttonImage.x = -buttonImage.width / 2;
 		buttonImage.y = -buttonImage.height / 2;
@@ -56,10 +56,15 @@ class Button extends Sprite
 		//	text stuff
 		var buttonTextField:TextField = new TextField();
 		buttonTextField.text = buttonText;
-		var fontSize = 40;
+		var fontSize = 30;
 		buttonTextField.defaultTextFormat = new TextFormat(Assets.getFont("Fonts/TIMES.TTF").fontName, fontSize);
 		buttonTextField.autoSize = TextFieldAutoSize.LEFT;
+		buttonTextField.x = -buttonTextField.width / 2;
+		buttonTextField.y = -buttonTextField.height / 2;
+		buttonTextField.width = buttonImage.width;
+		buttonTextField.height = buttonImage.height;
 		buttonTextField.selectable = false;
+		buttonTextField.mouseEnabled = false;
 		buttonSprite.addChild(buttonTextField);
 		
 		addChild(buttonSprite);

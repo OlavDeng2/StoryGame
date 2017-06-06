@@ -14,6 +14,8 @@ import openfl.text.TextFieldAutoSize;
 import openfl.text.Font;
 import openfl.text.TextFormat;
 import openfl.text.TextFormatAlign;
+
+
 /**
  * ...
  * @author Olav
@@ -26,12 +28,12 @@ class StageCharacterCreation
 	//create text fields
 	public static var characterNameField:TextField = new TextField();
 	public static var pleaseEnterCharacterNameTextField:TextField = new TextField();
-	public static var storyTextField:TextField = new TextField();
 
 	//create some other variables that are needed
-	public static var storyLocation:Int;
-	public static var storyLength: Int = 3;
-	public static var characterName:String = "";
+	static var storyNumber:Int;
+	static var storyLocation:String = "";
+	static var storyLength: String = "2";
+	static var characterName:String = "";
 	
 	//do the necesarry setups
 	public static function setup(stageref:Stage)
@@ -45,6 +47,9 @@ class StageCharacterCreation
 		//This function is used to make sure that the SceneManager has the correct stage to work off of when switching between different stages
 		SceneManager.setMyStage(myStage);
 		addBackground();
+		
+		inputCharacterName();
+		acceptCharacterName(500, 600);
 	}
 	
 	static function addBackground()
@@ -54,8 +59,6 @@ class StageCharacterCreation
 		
 		myStage.addChild(backgroundImage);
 		
-		inputCharacterName();
-		acceptCharacterName(500, 600);
 
 	}
 	
@@ -99,7 +102,7 @@ class StageCharacterCreation
 	static function acceptCharacterName(xPos:Int, yPos:Int)
 	{
 
-		var acceptCharacterNameButton:Button = new Button("ContinueButton", "");
+		var acceptCharacterNameButton:Button = new Button("MenuButton", "Continue");
 		
 		acceptCharacterNameButton.y = yPos;
 		acceptCharacterNameButton.x = xPos;
@@ -117,9 +120,11 @@ class StageCharacterCreation
 		GameManager.setCurrentName(characterNameField.text);
 		
 		//This is the numbering of the story in the database, 1 being the 1st row, 2 being 2nd etc. Always begins at row 1 for obvious reasons
-		storyLocation = 1;
+		storyNumber = 1;
+		storyLocation = "1";
+		Sys.println(storyNumber);
 		
-		//displayStory(storyLocation);
+		GameManager.displayStory(storyLocation);
 		nextStory(500, 600);
 		
 		//remove things which are now unecesarry
@@ -132,7 +137,7 @@ class StageCharacterCreation
 	//next story button
 	static function nextStory(xPos:Int, yPos:Int)
 	{
-		var nextStoryButton:Button = new Button("ContinueButton", "");
+		var nextStoryButton:Button = new Button("MenuButton", "Continue");
 		
 		nextStoryButton.y = yPos;
 		nextStoryButton.x = xPos;
@@ -145,14 +150,14 @@ class StageCharacterCreation
 	//functionality of the above button	
 	static function nextStoryPress(event:MouseEvent)
 	{
-		myStage.removeChild(storyTextField);
-
+		
 		var nextStoryButton:Button = cast(event.target);
-		Sys.println("story next");
+		myStage.removeChildren();
 		
-		storyLocation += 1;
-		
-		//displayStory(storyLocation);
+		storyNumber += 1;
+		storyLocation = Std.string(storyNumber);
+		addBackground();
+		GameManager.displayStory(storyLocation);
 		if (storyLocation == storyLength)
 		{
 			UIButton.playMainGameButton(500, 600);
@@ -161,7 +166,7 @@ class StageCharacterCreation
 		else
 		{
 			nextStory(500, 600);
-
 		}
 	}
+
 }
