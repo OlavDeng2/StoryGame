@@ -1,7 +1,12 @@
 package;
 
+
 import openfl.display.Sprite;
 import openfl.Lib;
+
+import motion.Actuate;
+
+
 
 /**
  * ...
@@ -19,6 +24,7 @@ class Main extends Sprite
 		//SoundManager.start();
 		StageMainMenu.setup(stage);
 		StageMainMenu.start();
+
 
 	}
 
