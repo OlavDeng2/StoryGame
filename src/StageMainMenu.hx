@@ -8,9 +8,6 @@ import openfl.display.Sprite;
 import openfl.display.Stage;
 
 
-
-import motion.Actuate;
-import motion.easing.Linear;
 import openfl.display.Bitmap;
 import openfl.display.BitmapData;
 import openfl.display.Sprite;
@@ -61,16 +58,5 @@ class StageMainMenu extends Sprite
 	static function showTitle()
 	{
 		
-	}
-	
-		
-	public static function addTimer()
-	{
-		Sys.println("this called");
-		var rect = new BitmapData(myStage.stageWidth, 10, false, 0x000000);
-		var countdownSprite = new Sprite();
-		countdownSprite.addChild(new Bitmap(rect));
-		myStage.addChild(countdownSprite);
-		Actuate.update(function(x) { countdownSprite.scaleX = x; }, 4, [1], [0]).ease(Linear.easeNone).onComplete(function() {trace("Done!"); });
 	}
 }
