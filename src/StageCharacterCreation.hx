@@ -14,6 +14,8 @@ import openfl.text.TextFieldAutoSize;
 import openfl.text.Font;
 import openfl.text.TextFormat;
 import openfl.text.TextFormatAlign;
+
+
 /**
  * ...
  * @author Olav
@@ -166,4 +168,5 @@ class StageCharacterCreation
 			nextStory(500, 600);
 		}
 	}
+
 }

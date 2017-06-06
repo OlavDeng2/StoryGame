@@ -9,6 +9,7 @@ import openfl.display.Stage;
 
 import motion.Actuate;
 import motion.easing.Linear;
+
 /**
  * ...
  * @author Olav
@@ -38,6 +39,7 @@ class StageMainGame
 		storyTree = "3";
 		score = 0;
 		addTimer();
+
 		GameManager.displayStory(storyTree);
 	}
 	
@@ -60,7 +62,7 @@ class StageMainGame
 		var countdownSprite = new Sprite();
 		countdownSprite.addChild(new Bitmap(rect));
 		myStage.addChild(countdownSprite);
-		//Actuate.update(function(x) { countdownSprite.scaleX = x; }, 4, [1], [0]).ease(Linear.easeNone).onComplete(function() {trace("Done!"); });
+		Actuate.update(function(x) { countdownSprite.scaleX = x; }, 4, [1], [0]).ease(Linear.easeNone).onComplete(function() {trace("Done!"); });
 	}
 
 	
@@ -72,7 +74,6 @@ class StageMainGame
 		addBackground();
 		storyTree += '.$answer';
 		Sys.println(storyTree);
-		
 		GameManager.displayStory(storyTree);
 		
 	}
