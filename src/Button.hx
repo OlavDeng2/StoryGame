@@ -58,7 +58,7 @@ class Button extends Sprite
 		buttonTextField.text = buttonText;
 		var fontSize = 30;
 		buttonTextField.defaultTextFormat = new TextFormat(Assets.getFont("Fonts/TIMES.TTF").fontName, fontSize);
-		buttonTextField.autoSize = TextFieldAutoSize.CENTER;
+		buttonTextField.autoSize = TextFieldAutoSize.LEFT;
 		buttonTextField.x = -buttonTextField.width / 2;
 		buttonTextField.y = -buttonTextField.height / 2;
 		buttonTextField.width = buttonImage.width;

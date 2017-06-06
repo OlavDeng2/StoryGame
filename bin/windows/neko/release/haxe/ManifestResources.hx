@@ -24,12 +24,11 @@ import sys.FileSystem;
 		
 		preloadLibraries = new Array ();
 		preloadLibraryNames = new Array ();
-		
 		var rootPath = null;
 		
-		if (config != null && Reflect.hasField (config, "rootPath")) {
+		if (config != null && Reflect.hasField (config, "assetsPrefix")) {
 			
-			rootPath = Reflect.field (config, "rootPath");
+			rootPath = Reflect.field (config, "assetsPrefix");
 			
 		}
 		
