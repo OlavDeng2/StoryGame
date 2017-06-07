@@ -208,7 +208,7 @@ class GameManager
 		//get the story from the database at collom story from table story
 		
 		//make sure the bellow is correct as right now it probably crashes
-		var storySet = cnx.request('SELECT Number, Story, Answer1, Answer2, Answer3, Answer4 FROM Story WHERE Number == "$storyLocation"');
+		var storySet = cnx.request('SELECT * FROM Story WHERE Number == "$storyLocation"');
 		
 		
 		//Go through the rows in story and get the story
