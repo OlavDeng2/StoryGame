@@ -43,7 +43,6 @@ class StageMainGame
 		addBackground();
 		//This function is used to make sure that the SceneManager has the correct stage to work off of when switching between different stages
 		SceneManager.setMyStage(myStage);
-		Sys.println("you now playing the game");
 		storyTree = "q1";
 		score = 0;
 		addTimer();
@@ -66,8 +65,7 @@ class StageMainGame
 	static function addTimer()
 	{
 
-		Sys.println("this called");
-		var time:Int = 60;
+		var time:Int = 40;
 		
 		var timerField:TextField = new TextField();
 		var fontSize = 30;
@@ -75,13 +73,16 @@ class StageMainGame
 		timerField.selectable = false;
 		timerField.text = Std.string(time);
 		timerField.x = 1100;
+		timerField.y = 425;
 		timerField.width = 270;
 		timerField.height = 50;
 		myStage.addChild(timerField);
 		timer.run = function () 
 		{
-			Sys.println(time);
-			if (time >= 60)
+			time -= 1;
+			timerField.text = Std.string(time);
+			myStage.addChild(timerField);
+			if (time <= 0)
 			{
 				nextStory("5");
 				timer.stop();
@@ -98,7 +99,6 @@ class StageMainGame
 		myStage.removeChildren();
 		addBackground();
 		storyTree += "." + answer;
-		Sys.println(storyTree);
 		GameManager.displayStory(storyTree);
 		
 	}
