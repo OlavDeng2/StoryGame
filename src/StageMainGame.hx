@@ -7,6 +7,13 @@ import openfl.display.BitmapData;
 import openfl.display.Sprite;
 import openfl.display.Stage;
 
+import openfl.text.TextField;
+import openfl.text.TextFieldType;
+import openfl.text.TextFieldAutoSize;
+import openfl.text.Font;
+import openfl.text.TextFormat;
+import openfl.text.TextFormatAlign;
+
 /**
  * ...
  * @author Olav
@@ -58,11 +65,21 @@ class StageMainGame
 		
 	static function addTimer()
 	{
+
 		Sys.println("this called");
-		var time:Int = 0;
+		var time:Int = 60;
+		
+		var timerField:TextField = new TextField();
+		var fontSize = 30;
+		timerField.defaultTextFormat = new TextFormat(Assets.getFont("Fonts/TIMES.TTF").fontName, fontSize);
+		timerField.selectable = false;
+		timerField.text = Std.string(time);
+		timerField.x = 1100;
+		timerField.width = 270;
+		timerField.height = 50;
+		myStage.addChild(timerField);
 		timer.run = function () 
 		{
-			time += 1;
 			Sys.println(time);
 			if (time >= 60)
 			{
