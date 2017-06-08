@@ -114,13 +114,11 @@ class StageCharacterCreation
 	static function acceptCharacterNameButtonPress(event:MouseEvent)
 	{
 		var acceptCharacterNameButton:Button = cast(event.target);
-		Sys.println("Char name is now saved");
 		GameManager.setCurrentName(characterNameField.text);
 		
 		//This is the numbering of the story in the database, 1 being the 1st row, 2 being 2nd etc. Always begins at row 1 for obvious reasons
 		storyNumber = 1;
 		storyLocation = "1";
-		Sys.println(storyNumber);
 		
 		GameManager.displayStory(storyLocation);
 		nextStory(500, 600);

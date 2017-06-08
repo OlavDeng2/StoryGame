@@ -93,7 +93,6 @@ class UIButton extends Button
 	private static function playButtonPress(event : MouseEvent)
 	{
 		var pressablePlayButton:Button = cast (event.target);
-		Sys.println("start Game");
 		SceneManager.switchToStageCharacterCreation();
 	}
 	
@@ -187,8 +186,6 @@ class UIButton extends Button
 	private static function answer1ButtonPress(event : MouseEvent)
 	{
 		var pressableAnswer1Button:Button = cast (event.target);
-		Sys.println("1");
-
 		StageMainGame.nextStory("1");
 	}
 	
@@ -212,7 +209,6 @@ class UIButton extends Button
 	private static function answer2ButtonPress(event : MouseEvent)
 	{
 		var pressableAnswer2Button:Button = cast (event.target);
-		Sys.println("2");
 		
 		StageMainGame.nextStory("2");
 	}
@@ -236,7 +232,6 @@ class UIButton extends Button
 	private static function answer3ButtonPress(event : MouseEvent)
 	{
 		var pressableAnswer3Button:Button = cast (event.target);
-		Sys.println("3");
 		StageMainGame.nextStory("3");
 	}
 	
@@ -259,7 +254,6 @@ class UIButton extends Button
 	private static function answer4ButtonPress(event : MouseEvent)
 	{
 		var pressableAnswer4Button:Button = cast (event.target);
-		Sys.println("4");
 		StageMainGame.nextStory("4");
 	}
 	
@@ -283,7 +277,6 @@ class UIButton extends Button
 	private static function victoryButtonPress(event : MouseEvent)
 	{
 		var pressableVictoryButton:Button = cast (event.target);
-		Sys.println("Victory");
 		SceneManager.switchToStageVictory();
 	}
 	
@@ -308,7 +301,6 @@ class UIButton extends Button
 	private static function gameOverButtonPress(event : MouseEvent)
 	{
 		var pressableGameOverButton:Button = cast (event.target);
-		Sys.println("defeat");
 		SceneManager.switchToStageGameOver();
 	}
 	

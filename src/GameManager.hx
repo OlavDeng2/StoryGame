@@ -56,7 +56,6 @@ class GameManager
 	public static function setCurrentName(name:String)
 	{
 		currentName = name;
-		Sys.println(currentName);
 	}
 	
 	public static function writeScoreToDB()
@@ -129,7 +128,6 @@ class GameManager
 	//Get and display the credits
 	public static function getCredits()
 	{
-		Sys.println("its happening?");
 		setMyStage();
 		var place:Int = 1;
 
@@ -176,7 +174,6 @@ class GameManager
 			
 			place += 1;
 			
-			Sys.println("its happening!");
 		}
 		
 		// close the database
@@ -217,13 +214,11 @@ class GameManager
 
 			if (row.Answer1 == "D")
 			{
-				Sys.println("Defeat :/");
 
 				UIButton.gameOverButton(500, 600);	
 			}
 			if (row.Answer1 == "V")
 			{
-				Sys.println("Victory!");
 				UIButton.victoryButton(500, 600);
 			}
 			

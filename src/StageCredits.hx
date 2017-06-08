@@ -31,7 +31,6 @@ class StageCredits
 		SceneManager.setMyStage(myStage);
 		
 		GameManager.getCredits();
-		Sys.println("credits scene");
 		
 		//Really self explanatory, if not see the UIButton class
 		UIButton.mainMenuButton(200, 500);

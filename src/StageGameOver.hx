@@ -64,7 +64,6 @@ class StageGameOver
 		endTextField.x = 50;
 		endTextField.y = 50;
 		endTextField.width = myStage.width-50;
-		//endTextField.height = myStage.height-300;
 		endTextField.wordWrap = true;
 		myStage.addChild(endTextField);
 	}
@@ -76,7 +75,6 @@ class StageGameOver
 		nameTextField.defaultTextFormat = new TextFormat(Assets.getFont("Fonts/TIMES.TTF").fontName, fontSize);
 		nameTextField.selectable = false;
 		nameTextField.text = "Name: " +  GameManager.getCurrentName();
-		Sys.println(GameManager.getCurrentScore());
 		nameTextField.x = 210;
 		nameTextField.y = 150;
 		nameTextField.width = 270;
@@ -88,7 +86,6 @@ class StageGameOver
 		scoreTextField.defaultTextFormat = new TextFormat(Assets.getFont("Fonts/TIMES.TTF").fontName, fontSize);
 		scoreTextField.selectable = false;
 		scoreTextField.text = "Score: " + Std.string(GameManager.getCurrentScore());
-		Sys.println(GameManager.getCurrentName());
 		scoreTextField.x = 210;
 		scoreTextField.y = 200;
 		scoreTextField.width = 270;
