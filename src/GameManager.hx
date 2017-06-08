@@ -92,9 +92,8 @@ class GameManager
 			var scoreXPos:Int = 75;
 
 			//add the names to the screen
-			var scoreNameTextFieldText:String = '$place $charName ';
 			var scoreNameTextField:TextField = new TextField();
-			scoreNameTextField.text = scoreNameTextFieldText;
+			scoreNameTextField.text = '$place $charName ';
 			var fontSize = 40;
 			scoreNameTextField.defaultTextFormat = new TextFormat(Assets.getFont("Fonts/TIMES.TTF").fontName, fontSize);
 			scoreNameTextField.autoSize = TextFieldAutoSize.LEFT;
@@ -105,9 +104,8 @@ class GameManager
 			myStage.addChild(scoreNameTextField);
 			
 			//add the score to the screen
-			var scoreTextFieldText:String = '$charScore ';
 			var scoreTextField:TextField = new TextField();
-			scoreTextField.text = scoreTextFieldText;
+			scoreTextField.text = '$charScore ';
 			var fontSize = 40;
 			scoreTextField.defaultTextFormat = new TextFormat(Assets.getFont("Fonts/TIMES.TTF").fontName, fontSize);
 			scoreTextField.autoSize = TextFieldAutoSize.LEFT;

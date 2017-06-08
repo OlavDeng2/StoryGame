@@ -64,7 +64,7 @@ class StageMainGame
 		{
 			time += 1;
 			Sys.println(time);
-			if (time >= 5)
+			if (time >= 60)
 			{
 				nextStory("5");
 				timer.stop();
