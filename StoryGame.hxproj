@@ -22,7 +22,7 @@
     <class path="src" />
     <class path="E:\Software\Haxe\haxe\lib\openfl\5,1,2\externs\core\openfl" />
     <class path="E:\Software\Haxe\haxe\lib\openfl\5,1,2\externs\extras" />
-    <class path="bin\windows\neko\release\haxe" />
+    <class path="bin\windows\cpp\release\haxe" />
   </classpaths>
   <!-- Build options -->
   <build>
